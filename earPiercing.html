@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lily's Ear Piercing Day</title>
+    <title>Diya's Ear Piercing Day</title>
     <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
     <style>
         body {
@@ -37,11 +37,23 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .carousel img {
+        .carousel-container {
+            position: relative;
             width: 100%;
-            height: auto;
+            padding-top: 50%;
+            /* Adjust this value to set the aspect ratio */
+            overflow: hidden;
+        }
+
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: none;
-            transition: transform 1s ease, opacity 1s ease;
+            transition: opacity 1s ease;
         }
 
         .carousel img.active {
@@ -190,7 +202,9 @@
 
         .gallery img {
             width: calc(33.333% - 10px);
-            height: auto;
+            height: 200px;
+            /* Add fixed height */
+            object-fit: cover;
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -224,13 +238,13 @@
 
 <body>
     <div class="container">
-        <h1>Lily's First Ear Piercing</h1>
+        <h1>Diya's Ear Piercing Function</h1>
         <div class="carousel">
-            <img src="https://picsum.photos/600/300?random=1" alt="Image 1" class="active">
-            <img src="https://picsum.photos/600/300?random=2" alt="Image 2">
-            <img src="https://picsum.photos/600/300?random=3" alt="Image 3">
-            <img src="https://picsum.photos/600/300?random=4" alt="Image 4">
-            <img src="https://picsum.photos/600/300?random=5" alt="Image 5">
+            <div class="carousel-container">
+                <img src="Images/Diya1.jpg" alt="Image 1" class="active">
+                <img src="Images/Diya2.jpg" alt="Image 2">
+                <img src="Images/Diya3.jpg" alt="Image 3">
+            </div>
             <div class="carousel-controls">
                 <button id="prev">&lt;</button>
                 <button id="next">&gt;</button>
@@ -239,37 +253,44 @@
         <p>Join us in celebrating a special milestone for our little princess, Lily! At the tender age of 4, she's
             embarking on her first ear piercing adventure. Witness her courage and joy as she takes this exciting step
             towards expressing her unique style.</p>
+
         <div class="event-details">
             <h2>Event Details</h2>
             <p><strong>Date:</strong> [Insert Date Here]</p>
             <p><strong>Time:</strong> [Insert Time Here]</p>
             <p><strong>Location:</strong> [Insert Location Name Here]</p>
         </div>
+
         <div class="map-container">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.305935303!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1626899646452!5m2!1sen!2sca"
                 style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+
         <div class="download-calendar">
             <a href="lilys_piercing_event.ics" download="lilys_piercing_event.ics">Download Calendar Entry</a>
         </div>
+
         <div id="countdown" class="countdown-timer"></div>
+
         <div class="guest-book">
             <h2>Leave a Message</h2>
             <textarea id="message" placeholder="Write a message..."></textarea>
             <button id="submitMessage">Submit</button>
             <div id="messagesContainer"></div>
         </div>
+
         <div class="photo-gallery">
             <h2>Event Photo Gallery</h2>
             <div class="gallery">
-                <img src="https://picsum.photos/200/200?random=1" alt="Gallery Image 1">
-                <img src="https://picsum.photos/200/200?random=2" alt="Gallery Image 2">
-                <img src="https://picsum.photos/200/200?random=3" alt="Gallery Image 3">
-                <img src="https://picsum.photos/200/200?random=4" alt="Gallery Image 4">
-                <img src="https://picsum.photos/200/200?random=5" alt="Gallery Image 5">
+                <img src="images/gallery1.jpg" alt="Gallery Image 1">
+                <img src="images/gallery2.jpg" alt="Gallery Image 2">
+                <img src="images/gallery3.jpg" alt="Gallery Image 3">
+                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+                <img src="images/gallery5.jpg" alt="Gallery Image 5">
             </div>
         </div>
+
         <div class="social-sharing">
             <h2>Share This Event</h2>
             <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" target="_blank">Facebook</a>
@@ -279,6 +300,7 @@
                 target="_blank">LinkedIn</a>
         </div>
     </div>
+
     <script>
         const carouselImages = document.querySelectorAll('.carousel img');
         let currentImageIndex = 0;
