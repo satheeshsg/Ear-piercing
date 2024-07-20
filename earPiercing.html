@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily's Ear Piercing Day</title>
+    <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        .carousel img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-controls button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-details h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .event-details p {
+            margin-bottom: 10px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .download-calendar {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .download-calendar a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1d1d1f;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-calendar a:hover {
+            background-color: #333333;
+        }
+
+        .countdown-timer {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .guest-book {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .guest-book textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .guest-book button {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .guest-book button:hover {
+            background-color: #333333;
+        }
+
+        #messagesContainer {
+            margin-top: 20px;
+        }
+
+        .message {
+            background-color: #f5f5f7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .photo-gallery {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: calc(33.333% - 10px);
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .social-sharing {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-sharing a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #1d1d1f;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-sharing a:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lily's First Ear Piercing</h1>
+        <div class="carousel">
+            <img src="https://picsum.photos/600/300?random=1" alt="Image 1" class="active">
+            <img src="https://picsum.photos/600/300?random=2" alt="Image 2">
+            <img src="https://picsum.photos/600/300?random=3" alt="Image 3">
+            <img src="https://picsum.photos/600/300?random=4" alt="Image 4">
+            <img src="https://picsum.photos/600/300?random=5" alt="Image 5">
+            <div class="carousel-controls">
+                <button id="prev">&lt;</button>
+                <button id="next">&gt;</button>
+            </div>
+        </div>
+        <p>Join us in celebrating a special milestone for our little princess, Lily! At the tender age of 4, she's
+            embarking on her first ear piercing adventure. Witness her courage and joy as she takes this exciting step
+            towards expressing her unique style.</p>
+        <div class="event-details">
+            <h2>Event Details</h2>
+            <p><strong>Date:</strong> [Insert Date Here]</p>
+            <p><strong>Time:</strong> [Insert Time Here]</p>
+            <p><strong>Location:</strong> [Insert Location Name Here]</p>
+        </div>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.305935303!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1626899646452!5m2!1sen!2sca"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="download-calendar">
+            <a href="lilys_piercing_event.ics" download="lilys_piercing_event.ics">Download Calendar Entry</a>
+        </div>
+        <div id="countdown" class="countdown-timer"></div>
+        <div class="guest-book">
+            <h2>Leave a Message</h2>
+            <textarea id="message" placeholder="Write a message..."></textarea>
+            <button id="submitMessage">Submit</button>
+            <div id="messagesContainer"></div>
+        </div>
+        <div class="photo-gallery">
+            <h2>Event Photo Gallery</h2>
+            <div class="gallery">
+                <img src="https://picsum.photos/200/200?random=1" alt="Gallery Image 1">
+                <img src="https://picsum.photos/200/200?random=2" alt="Gallery Image 2">
+                <img src="https://picsum.photos/200/200?random=3" alt="Gallery Image 3">
+                <img src="https://picsum.photos/200/200?random=4" alt="Gallery Image 4">
+                <img src="https://picsum.photos/200/200?random=5" alt="Gallery Image 5">
+            </div>
+        </div>
+        <div class="social-sharing">
+            <h2>Share This Event</h2>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL" target="_blank">Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=YOUR_URL&text=Check%20out%20this%20event!"
+                target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL&title=Event%20Title&summary=Event%20Description&source=LinkedIn"
+                target="_blank">LinkedIn</a>
+        </div>
+    </div>
+    <script>
+        const carouselImages = document.querySelectorAll('.carousel img');
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            carouselImages.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                    img.style.transform = 'rotateY(0deg)';
+                } else if (i === currentImageIndex) {
+                    img.style.transform = 'rotateY(180deg)';
+                }
+            });
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : carouselImages.length - 1;
+            showImage(currentImageIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex < carouselImages.length - 1) ? currentImageIndex + 1 : 0;
+            showImage(currentImageIndex);
+        });
+
+        // Optional: Automatically cycle through images
+        setInterval(() => {
+            currentImageIndex = (currentImageIndex < carouselImages.length - 1) ? currentImageIndex + 1 : 0;
+            showImage(currentImageIndex);
+        }, 3000); // Change image every 3 seconds
+
+        const eventDate = new Date('2023-12-01T12:00:00Z').getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = 'The event has started!';
+            }
+        }, 1000);
+
+        document.getElementById('submitMessage').addEventListener('click', () => {
+            const message = document.getElementById('message').value;
+            if (message.trim()) {
+                const messageContainer = document.createElement('div');
+                messageContainer.className = 'message';
+                messageContainer.textContent = message;
+                document.getElementById('messagesContainer').appendChild(messageContainer);
+                document.getElementById('message').value = '';
+            }
+        });
+    </script>
+</body>
+
+</html>

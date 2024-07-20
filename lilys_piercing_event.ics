@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//NONSGML v1.0//EN
+BEGIN:VEVENT
+UID:uid1@example.com
+DTSTAMP:20231001T123000Z
+ORGANIZER;CN=Organizer Name:MAILTO:organizer@example.com
+DTSTART:20231001T123000Z
+DTEND:20231001T133000Z
+SUMMARY:Lily's First Ear Piercing
+DESCRIPTION:Join us in celebrating a special milestone for our little princess, Lily! At the tender age of 4, she's embarking on her first ear piercing adventure.
+LOCATION:[Insert Location Name Here]
+END:VEVENT
+END:VCALENDAR
